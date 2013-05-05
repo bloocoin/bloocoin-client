@@ -6,11 +6,11 @@ import register
 import send
 import transactions
 
-__version__ = 0.01
+__version__ = 0.02
 
 class BlooClient(cmd.Cmd):
     prompt = "BlooCoin$ "
-    intro = "The BlooCoin Official Client version " + str(__version__)
+    intro = "The BlooCoin Official Client version " + str(__version__) + "\nType help for a list of commands\n"
     def do_coins(self, line):
         print coins.coins()
     def do_addr(self, line):
@@ -22,7 +22,18 @@ class BlooClient(cmd.Cmd):
         print send.send(amt, to)
     def do_transactions(self, line):
         transactions.transactions()
+    def do_help(self, line):
+        print """ 
+        
+        BlooCoin Client Commands
 
+        send <amt> <addr> - Send coins to an address.
+        coins - Shows the amount of coins that you have.
+        addr - Shows your BLC address.
+        transactions - Shows all transactions you have made.
+        help - Displays this prompt.
+
+        """
 if __name__ == "__main__":
     if not os.path.exists("bloostamp"):
         register.register()

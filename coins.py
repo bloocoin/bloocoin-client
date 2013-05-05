@@ -20,5 +20,5 @@ def coins():
         data = json.loads(data)
         if data[u'success']:
             return "You have "+str(data['payload']['amount'])+" coins"
-    if not data:
-        return "Error"
+        else:
+            return data[u'message']
