@@ -5,6 +5,7 @@ import addr
 import register
 import send
 import transactions
+import total_coins
 
 __version__ = 0.02
 
@@ -22,6 +23,8 @@ class BlooClient(cmd.Cmd):
         print send.send(amt, to)
     def do_transactions(self, line):
         transactions.transactions()
+    def do_totalcoins(self, line):
+        print "There are "+str(total_coins.total_coins())+" coins in curculation."
     def do_help(self, line):
         print """ 
         
@@ -31,6 +34,7 @@ class BlooClient(cmd.Cmd):
         coins - Shows the amount of coins that you have.
         addr - Shows your BLC address.
         transactions - Shows all transactions you have made.
+        totalcoins - Shows all coins in curculation
         help - Displays this prompt.
 
         """

@@ -1,2 +1,2 @@
-ip = "bloocoin.zapto.org"
+ip = ""
 port = 3122
