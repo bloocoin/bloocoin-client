@@ -9,25 +9,34 @@ import total_coins
 
 __version__ = 0.02
 
+
 class BlooClient(cmd.Cmd):
     prompt = "BlooCoin$ "
     intro = "The BlooCoin Official Client version " + str(__version__) + "\nType help for a list of commands\n"
+
     def do_coins(self, line):
         print coins.coins()
+
     def do_addr(self, line):
         print addr.addr()
+
     def do_send(self, line):
         line = line.split()
         amt = int(line[0])
         to = line[1]
         print send.send(amt, to)
+
     def do_transactions(self, line):
         transactions.transactions()
+<<<<<<< HEAD
     def do_totalcoins(self, line):
         print "There are "+str(total_coins.total_coins())+" coins in curculation."
+=======
+
+>>>>>>> 359098984cd3ca02b7c5472f1267dfc1d8268ab5
     def do_help(self, line):
-        print """ 
-        
+        print """
+
         BlooCoin Client Commands
 
         send <amt> <addr> - Send coins to an address.
