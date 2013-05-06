@@ -28,12 +28,10 @@ class BlooClient(cmd.Cmd):
 
     def do_transactions(self, line):
         transactions.transactions()
-<<<<<<< HEAD
+
     def do_totalcoins(self, line):
         print "There are "+str(total_coins.total_coins())+" coins in curculation."
-=======
 
->>>>>>> 359098984cd3ca02b7c5472f1267dfc1d8268ab5
     def do_help(self, line):
         print """
 
