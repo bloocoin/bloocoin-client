@@ -60,19 +60,6 @@ class BlooClient(cmd.Cmd):
     def help_exit(self):
         print "Exits the BlooCoin shell."
 
-#    def do_help(self, line):
-#        print """
-#
-#        BlooCoin Client Commands
-#
-#        send <amt> <addr> - Send coins to an address.
-#        coins - Shows the amount of coins that you have.
-#        addr - Shows your BLC address.
-#        transactions - Shows all transactions you have made.
-#        help - Displays this prompt.
-#
-#        """
-
 if __name__ == "__main__":
     if not os.path.exists("bloostamp"):
         register.register()
