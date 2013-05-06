@@ -8,8 +8,8 @@ from server_data import ip, port
 
 
 def register():
-    addr = sha1(str(uuid.uuid1(random.randint(0, 100000000000000)))).hexdigest()
-    key = sha1(str(uuid.uuid1(random.randint(0, 100000000000000)))).hexdigest()
+    addr = sha1(str(uuid.uuid4())).hexdigest()
+    key = sha1(str(uuid.uuid4())).hexdigest()
     if submit(addr, key):
         print "Registration Success! Your BlooCoin Address is: ", addr
     else:
