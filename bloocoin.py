@@ -11,9 +11,7 @@ __version__ = 0.02
 
 class BlooClient(cmd.Cmd):
     prompt = "BlooCoin$ "
-    intro = ("The BlooCoin Official Client version "
-             str(__version__)
-             "\nType help for a list of commands\n")
+    intro = "The BlooCoin Official Client version " + str(__version__) + "\nType help for a list of commands\n"
 
     def do_coins(self, line):
         print coins.coins()
