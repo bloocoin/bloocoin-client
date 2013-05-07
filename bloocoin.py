@@ -1,5 +1,7 @@
 import cmd
 import os
+import socket
+import json
 
 import coins
 import addr
@@ -11,12 +13,37 @@ __version__ = "1.1.0-devel"
 
 
 class BlooClient(cmd.Cmd):
+    server = ("bloocoin.zapto.org", 3122)
+
     def preloop(self):
         self.prompt = "BLC $ "
         self.intro = "".join([
             "The official BlooCoin client (version {0})".format(__version__),
             "\nType 'help' or '?' for a list of commands\n"
         ])
+
+    def _send_command(self, cmd, payload, buffer_size=1024):
+        # Merge payload with command.
+        payload = dict(cmd=cmd, **payload)
+        try:
+            s = socket.socket()
+            s.connect(self.server)
+            s.send(json.dumps(payload))
+            data = ""
+            while True:
+                recv = s.recv(buffer_size)
+                if recv:
+                    data += recv
+                else:
+                    break
+            data = json.loads(data)
+            return data
+        except IOError as e:
+            # Ehhhhhhrrrrr, debugging maybe?
+            return False
+        except ValueError as e:
+            # Invalid JSON returned, most likely
+            return False
 
     def emptyline(self):
         """ We don't want to do anything given no command """
