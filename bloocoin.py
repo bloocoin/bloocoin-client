@@ -30,7 +30,7 @@ class BlooClient(cmd.Cmd):
         transactions.transactions()
 
     def do_totalcoins(self, line):
-        print "There are "+str(total_coins.total_coins())+" coins in curculation."
+        print "There are "+str(total_coins.total_coins())+" coins in circulation."
 
     def do_help(self, line):
         print """
