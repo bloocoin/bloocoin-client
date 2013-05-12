@@ -10,6 +10,7 @@ def send(amount, to):
         key = f[1]
     s = socket.socket()
     s.connect((ip, port))
+    s.settimeout(2)
     s.send(json.dumps({
         "cmd": "send_coin",
         "to": to,

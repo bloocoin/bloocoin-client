@@ -9,11 +9,12 @@ def coins():
         addr, key = file[0], file[1]
 
     s = socket.socket()
+    s.settimeout(2)
     try:
         s.connect((ip, port))
     except:
-        return "Could not connect to server."
-
+        return "Could not connect to server. Try again."
+        
     s.send(json.dumps({"cmd": "my_coins", "addr": addr, "pwd": key}))
     data = s.recv(1024)
     s.close()

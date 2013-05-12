@@ -9,6 +9,7 @@ def transactions():
         addr, pwd = f[0], f[1]
     s = socket.socket()
     s.connect((ip, port))
+    s.settimeout(2)
     s.send(json.dumps({"cmd": "transactions", "addr": addr, "pwd": pwd}))
     data = ""
     while True:

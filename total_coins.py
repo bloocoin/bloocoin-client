@@ -5,6 +5,7 @@ import socket
 def total_coins():
     data = json.dumps({"cmd":"total_coins"})
     s = socket.socket()
+    s.settimeout(2)
     try:
         s.connect((ip, port))
     except:
