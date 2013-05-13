@@ -9,7 +9,7 @@ def coins():
         addr, key = file[0], file[1]
 
     s = socket.socket()
-    s.settimeout(2)
+    s.settimeout(10)
     try:
         s.connect((ip, port))
     except:
