@@ -6,8 +6,9 @@ import register
 import send
 import transactions
 import total_coins
+import check_addr
 
-__version__ = 0.02
+__version__ = 0.03
 
 
 class BlooClient(cmd.Cmd):
@@ -31,7 +32,12 @@ class BlooClient(cmd.Cmd):
 
     def do_totalcoins(self, line):
         print "There are "+str(total_coins.total_coins())+" coins in circulation."
-
+    
+    def do_checkaddr(self, line):
+        line = line.split()
+        addr = line[0]
+        print check_addr.check_addr(addr)
+        
     def do_help(self, line):
         print """
 
@@ -41,7 +47,8 @@ class BlooClient(cmd.Cmd):
         coins - Shows the amount of coins that you have.
         addr - Shows your BLC address.
         transactions - Shows all transactions you have made.
-        totalcoins - Shows all coins in curculation
+        totalcoins - Shows all coins in curculation.
+        checkaddr <addr> - Checks how many coins belong to a specific address.
         help - Displays this prompt.
 
         """
