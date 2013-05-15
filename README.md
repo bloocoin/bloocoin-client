@@ -1,7 +1,7 @@
 BlooCoin Client
 ===============
 
-BlooCoin is a crypto-currency like Bitcoin that uses a central server to handle all transaction, rather than using a peer-to-peer networking system.
+BlooCoin is an eCurrency that uses a central server to handle all transaction, rather than using a peer-to-peer networking system.
 
 Client
 ------
