@@ -1,2 +1,2 @@
-ip = "server.bloocoin.org"
+ip = "199.168.138.4"
 port = 3122

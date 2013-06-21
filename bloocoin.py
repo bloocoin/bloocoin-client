@@ -8,7 +8,7 @@ import transactions
 import total_coins
 import check_addr
 
-__version__ = 0.03
+__version__ = "1.0.0"
 
 
 class BlooClient(cmd.Cmd):
@@ -22,11 +22,14 @@ class BlooClient(cmd.Cmd):
         print addr.addr()
 
     def do_send(self, line):
-        line = line.split()
-        amt = int(line[0])
-        to = line[1]
-        print send.send(amt, to)
-
+        
+        try:
+            line = line.split()
+            amt = int(line[0])
+            to = line[1]
+            print send.send(amt, to)
+        except:
+            pass
     def do_transactions(self, line):
         transactions.transactions()
 
@@ -35,9 +38,11 @@ class BlooClient(cmd.Cmd):
     
     def do_checkaddr(self, line):
         line = line.split()
-        addr = line[0]
-        print check_addr.check_addr(addr)
-        
+        try:
+            addr = line[0]
+            print check_addr.check_addr(addr)
+        except:
+            pass
     def do_help(self, line):
         print """
 
@@ -52,7 +57,12 @@ class BlooClient(cmd.Cmd):
         help - Displays this prompt.
 
         """
+
+    def do_exit(self, line):
+        exit()
 if __name__ == "__main__":
     if not os.path.exists("bloostamp"):
         register.register()
+    
     BlooClient().cmdloop()
+         
